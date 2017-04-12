@@ -15,9 +15,10 @@ import static org.junit.Assert.*;
  * @author vekivulic
  */
 public class QtyDiscountTest {
-  private  QtyDiscount instance ;
+  private  QtyDiscount qtyDiscount ;
     
     public QtyDiscountTest() {
+        qtyDiscount=new QtyDiscount(.10,1);
     }
     
     @Before
@@ -97,9 +98,8 @@ public class QtyDiscountTest {
         fail("The test case is a prototype.");
     }
     @Test (expected=IllegalArgumentException.class)
-    public void testSetPersonIDCannotBeEmpty() {
-        instance.getMinQty();
-       set.m("");
+    public void testSetDiscountRateShouldNotAllowValueLessThenZero() {
+       qtyDiscount.setDiscountRate(0);
        
     }
 }
